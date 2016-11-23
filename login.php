@@ -27,20 +27,12 @@ try {
 				$dotaz->bindParam(':heslo', $hesloHash);
 				$dotaz->execute();
 				$vysledek = $dotaz->fetch();
-				print_r($vysledek)
+				print_r($vysledek);
 				if(vysledek[0] == 1) ($_SESSION['user'] == $_POST['email'];);
-			else echo "";
-
-$cookie_name = "user";
-setcookie($cookie_name, $email, time() + (86400 * 30), "/"); // 86400 = 1 den
+			else throw new exception('Neplatné přihlášení')
 
 
-
-
-    // Code following an exception is not executed.
-    echo 'Never executed';
-
-} catch (PDOException $e) {
+} catch (exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
 }
 
